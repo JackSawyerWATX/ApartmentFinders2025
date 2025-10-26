@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rod Morrison - Houston Apartment Finder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a class="navbar-brand" href="#home">Rod Morrison - Houston Apartment Finder</a>
+    <div class="menu-toggle" onclick="toggleNav()">
+      <span class="menu-text">Menu</span>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidenav -->
+  <div class="sidenav" id="sidenav">
+    <a href="#home" onclick="toggleNav()">Home</a>
+    <a href="#about" onclick="toggleNav()">About</a>
+    <a href="#listings" onclick="toggleNav()">Listings</a>
+    <a href="#services" onclick="toggleNav()">Services</a>
+    <a href="#contact" onclick="toggleNav()">Contact</a>
+  </div>
+
+  <!-- Parallax Section 1 -->
+  <section id="home" class="parallax-section section-1">
+    <div class="parallax-bg" data-speed="0.15"></div>
+    <div class="content">
+      <h1>Find Your Dream Apartment in Houston</h1>
+      <p>Your journey to the perfect home starts here.</p>
+    </div>
+  </section>
+
+  <!-- Content Section 1 -->
+  <section id="about" class="content-section">
+    <div class="inner">
+      <h2>About Me</h2>
+      <p>I am a licensed real estate agent with extensive knowledge of the Houston rental market. Our free service
+        provides detailed profiles of apartments, saving you time and effort. We access current leasing incentives and
+        match your needs with the right properties. Complete our online form for a customized list and enjoy a
+        stress-free search with no extra costs. Get started today and let us help you find the perfect home!</p>
+    </div>
+  </section>
+
+  <!-- Parallax Section 2 -->
+  <section id="listings" class="parallax-section section-2">
+    <div class="parallax-bg" data-speed="0.15"></div>
+    <div class="content">
+      <h1>Luxury Living Spaces</h1>
+      <p>Contact us for a curated list of top-tier apartments.</p>
+      <a href="#contact" class="btn">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- Content Section 2 -->
+  <section id="services" class="content-section">
+    <div class="inner">
+      <h2>My Services</h2>
+      <p>This is a free, professional service to simplify your search. I have expertise in finding apartments that meet
+        your specific needs and can help you find the perfect fit. Please fill out this brief online form, and I can
+        ensure you find an apartment that suits your lifestyle and budget.</p>
+    </div>
+  </section>
+
+  <!-- Parallax Section 3 -->
+  <section id="contact" class="parallax-section section-3">
+    <div class="parallax-bg" data-speed="0.15"></div>
+    <div class="content">
+      <h1>Contact Us</h1>
+      <p>We're here to help you find the perfect place.</p>
+      <button class="btn" onclick="openModal()">Contact Form</button>
+    </div>
+  </section>
+
+  <!-- Contact Form Modal -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 style="color: #4facfe; margin-bottom: 1.5rem;">Contact Form</h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="mobile">Mobile Number</label>
+          <input type="tel" id="mobile" name="mobile" required>
+        </div>
+
+        <div class="form-group">
+          <label for="moveInDate">Approximate Move-in Date</label>
+          <input type="date" id="moveInDate" name="moveInDate" required>
+        </div>
+
+        <div class="form-group">
+          <label for="location">What part of Houston are you looking to live?</label>
+          <select id="location" name="location" required>
+            <option value="">Select an area...</option>
+            <option value="Inside The Loop">Inside The Loop</option>
+            <option value="Inside the Beltway">Inside the Beltway</option>
+            <option value="North Side">North Side</option>
+            <option value="South Side">South Side</option>
+            <option value="East Side">East Side</option>
+            <option value="West Side">West Side</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="priceRange">Price Range</label>
+          <input type="number" id="priceRange" name="priceRange" placeholder="Enter budget" required>
+        </div>
+
+        <div class="form-group">
+          <label>Number of Bedrooms</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="bedrooms" value="Efficiency"> Efficiency</label>
+            <label><input type="checkbox" name="bedrooms" value="1 Bedroom"> 1 Bedroom</label>
+            <label><input type="checkbox" name="bedrooms" value="2 Bedroom"> 2 Bedroom</label>
+            <label><input type="checkbox" name="bedrooms" value="3 Bedroom"> 3 Bedroom</label>
+            <label><input type="checkbox" name="bedrooms" value="Other"> Other</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Do You Have Pets?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="hasPets" value="Yes" onchange="togglePetTypes(true)"> Yes</label>
+            <label><input type="radio" name="hasPets" value="No" onchange="togglePetTypes(false)"> No</label>
+          </div>
+        </div>
+
+        <div class="form-group" id="petTypesGroup" style="display: none;">
+          <label>What type of pets do you have?</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="petTypes" value="Cat"> Cat</label>
+            <label><input type="checkbox" name="petTypes" value="Dog"> Dog</label>
+            <label><input type="checkbox" name="petTypes" value="Other"> Other</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Do you own a washer and dryer?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="washerDryer" value="Yes"> Yes</label>
+            <label><input type="radio" name="washerDryer" value="No"> No</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Do you prefer Upstairs or Downstairs?</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="floorPreference" value="Upstairs"> Upstairs</label>
+            <label><input type="checkbox" name="floorPreference" value="Downstairs"> Downstairs</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="comments">Additional Comments</label>
+          <textarea id="comments" name="comments"></textarea>
+        </div>
+
+        <button type="submit" class="btn">Submit Details</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; Rod Morrison - Houston Apartment Finder. All rights reserved.</p>
+    <p>Licensed by TREC - Broker License #: 401122</p>
+  </footer>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast">
+  <div class="toast-content">
+    <p><strong>⚠️ Warning:</strong> You have unsaved information!</p>
+    <p>All entered data will be lost if you close without submitting.</p>
+    <div class="toast-buttons">
+      <button class="toast-btn cancel" onclick="forceCloseModal()">Close Anyway</button>
+      <button class="toast-btn keep" onclick="hideToast()">Keep Editing</button>
+    </div>
+  </div>
+</div>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
